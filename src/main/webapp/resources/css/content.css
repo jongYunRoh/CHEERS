@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+main {
+	padding-top: 5rem;
+}
+
+/*map*/
+.overlaybox {
+	width: 240px;
+    background: #fff;
+    border: 1px solid;
+    padding: 1rem;
+    position: relative;
+}
+.overlaybox .content img {
+	width: 100%;
+}
+.overlaybox .close {
+	position: absolute;
+    top: 0;
+    right: 5px;
+}

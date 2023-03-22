@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="search">
+  <select id="searchName" resultType="kr.co.vo.StoreVO"><!-- 검색어에 해당하는 가게 찾기 -->
+    SELECT * FROM store WHERE s_name LIKE CONCAT('%',#{keyword},'%') 
+    						OR s_addr LIKE CONCAT('%',#{keyword},'%')
+							OR (s_num) IN (SELECT s_num FROM store_detail WHERE sd_type LIKE CONCAT('%',#{keyword},'%'))
+  </select>
+</mapper>

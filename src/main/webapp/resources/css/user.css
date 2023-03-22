@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+/*로그인*/
+.loginForm_wrap {
+	max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 9rem 0;
+}
+.loginForm_wrap .sub_title {
+	margin-bottom: 20px;
+}
+.login_input[type=radio]{
+	width: 0;
+  	height: 0;
+  	position: absolute;
+  	left: -9999px;
+}
+.login_input[type=radio] + label{
+  	margin: 0;
+  	padding: .75em 1.5em;
+  	box-sizing: border-box;
+  	position: relative;
+  	display: inline-block;
+  	border: solid 1px #DDD;
+  	background-color: #FFF;
+  	line-height: 140%;
+  	text-align: center;
+  	transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out;
+  	cursor: pointer;
+  	width: 100%;
+}
+.login_input[type=radio]:checked + label{
+  	background-color: #5f0080;
+    color: #fff;
+    border-color: #5f0080;
+    z-index: 1;
+}
+.loginForm_wrap .form-check-inline {
+	width: 50%;
+	margin: 0;
+}
+.login_btn_wrap {
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+}
+.login_btn_wrap .btn.login_btn {
+	background: #5f0080;
+	color: #fff;
+	width: 100%;
+	height: 50px;
+}
+.login_btn_wrap .btn.login_btn.melon {
+	background: #00d344;
+}
+.login_btn_wrap .btn.register_btn {
+	background: #eee;
+	width: 100%;
+	height: 50px;
+}
+
+/*카카오 로그인*/
+.kakao{
+   margin-top: 15px;
+   height: 60px;
+   border: solid 1px #FEE500;
+   background: #FEE500;
+   color: #3c1d1e;
+   font-size: 18px; 
+   box-sizing: border-box;
+   border-radius: 5px;
+   cursor: pointer;
+   width: 450px;
+   display: flex;
+}
+.kakao_i{
+   background: url(resources/icons/kakao.png) no-repeat;
+   width: 40px;
+   height: 100%;
+   background-size: 90%;
+   background-position: 50%;
+   margin: 0 20px;
+}
+.kakao_txt{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 16px;
+   padding-right: 60px;
+}
+
+/*회원가입*/
+.register {
+	padding: 50px 0;
+}
+.register_title {
+	border-bottom: 2px solid;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+.terms_title {
+	border-top: 2px solid;
+    padding-top: 2rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.register_btn {
+	background: transparent;
+	color: #5f0080;
+	border: 1px solid #5f0080;
+	border-radius: 5px;
+	width: 100%;
+}
+.terms_btn {
+	background: transparent;
+	color: #5f0080;
+	position: relative;
+}
+.terms_btn::after {
+	position: absolute;
+    top: 15px;
+    right: 0;
+    display: inline-block;
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #5f0080;
+    border-right: 1px solid #5f0080;
+    transform: rotate(45deg);
+}
+.register_submit {
+	display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 150px;
+    background: #5f0080;
+    color: #fff;
+    margin-top: 3rem;
+}
+
+/* 회원가입 약관 */
+*{margin: 0;padding: 0;box-sizing: border-box}
+body{background-color: #f7f7f7;}
+ul>li{list-style: none;}
+a{text-decoration: none;}
+.clearfix::after{content: "";display: block;clear: both;}
+#joinForm{width: 460px;margin: 0 auto;}
+ul.join_box{border: 1px solid #ddd;background-color: #fff;}
+.checkBox,.checkBox>ul{position: relative;}
+.checkBox>ul>li{float: left;}
+.checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: #888;}
+.checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
+.checkBox textarea{width: 96%;height: 90px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;}
+.footBtwrap{margin-top: 15px;}
+.footBtwrap>li{float: left;width: 50%;height: 60px;}
+.footBtwrap>li>button{display: block; width: 25%;height: 100%; font-size: 20px;text-align: center; line-height: 60px;}
+.fpmgBt2{background-color: lightsalmon;color: #fff}
+
+/*내정보수정*/
+.modify.btn_wrap {
+	display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+}
+#modifyBtn {
+	background: #00d344;
+    color: #fff;
+    margin-right: 5px;
+}
+#deleteBtn {
+	background-color: #e9ecef;
+	color: #495057;
+	margin-right: 5px;
+}
+#mainBtn {
+	background-color: #e9ecef;
+	color: #495057;
+}
+/*회원탈퇴*/
+.delete {
+	max-width: 800px;
+    width: 100%;
+    height: calc(100vh - 250px);
+}
+.delete_title {
+	border-bottom: 2px solid;
+    padding: 4rem 0;
+    text-align: center;
+}
+.delete_btn {
+	background: #00d344;
+    color: #fff;
+    margin-right: 5px;
+}
+.home_btn {
+	background-color: #e9ecef;
+	color: #495057;
+}
+.delete .btn_wrap {
+	justify-content: center;
+	margin: 60px;
+}
+.delete form {
+    padding: 2rem;
+}

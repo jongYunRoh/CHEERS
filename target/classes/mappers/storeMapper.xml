@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store">
+   
+  <!-- 가게 정보 등록 -->
+	<insert id="register">
+	  insert into 
+	  store_info(s_num,s_name,s_zipcode,s_addr,s_addr_detail,s_tel,s_type,s_price_ref,s_site,s_menu)
+	  values(0,#{s_name},#{s_zipcode},#{s_addr},
+	  #{s_addr_detail},#{s_tel},#{s_type},#{s_price_ref},#{s_site},#{s_menu});
+	</insert>
+	
+	<!-- 가게 이미지 등록 -->
+	<insert id="insertFile">
+	  <selectKey resultType="int" keyProperty="s_num" order="BEFORE">
+	    select max(s_num) from store_info
+	  </selectKey>
+	  insert into file(f_num,s_num,f_ORG_FILE_NAME,f_STORED_FILE_NAME,f_SIZE,f_REGDATE)
+	   values(0,#{s_num},#{f_ORG_FILE_NAME},#{f_STORED_FILE_NAME},#{f_SIZE},now())
+	</insert>
+	
+	<select id="foodList">
+	  select * from store_info where s_name LIKE CONCAT('%',#{keyword},'%')
+	  							  OR s_addr LIKE CONCAT('%',#{keyword},'%')
+	  							  OR s_type LIKE CONCAT('%',#{keyword},'%')
+	</select>
+	
+	<!-- s_num에 해당하는 가게정보 조회 -->
+	<select id="storeInfo" resultType="kr.co.vo.Store_infoVO">
+	  select * from store_info where s_num=#{s_num}
+	</select>
+	
+	<!-- s_num에 해당하는 가게 이미지 조회 -->
+	<select id="storeImage" resultType="hashMap">
+	  select * from file where s_num=#{s_num}
+	</select>
+	
+	<select id="searchName" resultType="kr.co.vo.Store_infoVO"><!-- 검색어에 해당하는 가게 찾기 -->
+      SELECT * FROM store_info WHERE s_name LIKE CONCAT('%',#{keyword},'%') 
+    							  OR s_addr LIKE CONCAT('%',#{keyword},'%')
+								  OR s_type LIKE CONCAT('%',#{keyword},'%')
+    </select>
+    
+    <!-- 가게리스트 -->
+    <select id="storeList" resultType="kr.co.vo.Store_infoVO">
+      select s_num,s_name,s_price_ref,s_addr
+      from store_info
+      order by s_num desc
+    </select>
+    
+    <!-- 잇딜 등록 -->
+    <insert id="eatInsert">
+      insert into eat(e_num,e_name,e_price,e_period,e_content,e_addr,e_menu,s_num) 
+      values(0,#{e_name},#{e_price},#{e_period},#{e_content},#{e_addr},#{e_menu},#{s_num})
+    </insert>
+  	
+  	<!-- 잇딜 이미지 등록 -->
+	<insert id="insertFileEat">
+	  <selectKey resultType="int" keyProperty="e_num" order="BEFORE">
+	    select max(e_num) from eat
+	  </selectKey>
+	  insert into file(f_num,e_num,f_ORG_FILE_NAME,f_STORED_FILE_NAME,f_SIZE,f_REGDATE) 
+	  values(0,#{e_num},#{f_ORG_FILE_NAME},#{f_STORED_FILE_NAME},#{f_SIZE},now())
+	</insert>
+	
+	<!-- 잇딜리스트 -->
+    <select id="eatList" resultType="kr.co.vo.EatVO">
+      select e_num,e_name,e_price,e_period,e_content,e_addr,e_menu
+      from eat
+      order by e_num desc
+    </select>
+    
+    <!-- 잇딜에 등록된 이미지 조회 -->
+	<select id="storeImageEat" resultType="hashMap">
+	  select * from file where s_num is null AND e_num=#{e_num}
+	</select>
+	
+	<!-- 유저에 s_num 등록 -->
+	<update id="userSnum">
+	  update user set s_num=(select max(s_num) from store_info) where u_id=#{u_id}
+	</update>
+	
+	<!-- u_id에 해당하는 s_num 가져오기 -->
+	<select id="getSnum" resultType="kr.co.vo.UserVO">
+	  select * from user
+	  where u_id=#{u_id}
+	</select>
+	
+	<!-- e_num에 해당하는 가게정보 조회 -->
+	<select id="eatInfo" resultType="kr.co.vo.EatVO">
+	  select * from eat where e_num=#{e_num}
+	</select>
+</mapper>

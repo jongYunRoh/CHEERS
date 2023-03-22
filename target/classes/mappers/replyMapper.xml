@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="replyMapper">
+  <!-- 매퍼를 만들었으면, 매퍼에 접속할 DAO(Data Access Object)를 생성해주어야합니다. -->
+	  <!-- 댓글 조회 -->
+	  <!--댓글 조회는 게시물 번호(bno)만 이용하여 조회하되 결과는 ReplyVO의 형태로 반환되므로,
+	   파라미터타입(parameterType)는 정수형(int)이며 리절트타입(resultType)은 ReplyVO입니다.  -->
+	
+	<select id="readReply" resultType="kr.co.vo.ReplyVO">
+    	SELECT * FROM reply
+    	WHERE s_num = #{s_num}
+	</select>
+	
+	<!-- 댓글 작성 -->
+	<insert id="writeReply" parameterType="kr.co.vo.ReplyVO">
+		INSERT INTO reply VALUES(0, #{s_num},#{u_id}, #{r_content}, now(),#{r_grade})
+	</insert>
+	
+	<!-- 이미지 파일 업로드 -->
+	<insert id="insertFile">
+	  <selectKey resultType="int" keyProperty="r_num" order="BEFORE">
+	    select max(r_num) from reply
+	  </selectKey>
+	  insert into file(f_num,s_num,r_num,f_ORG_FILE_NAME,f_STORED_FILE_NAME,f_SIZE,f_REGDATE) values(0,#{s_num},#{r_num},#{f_ORG_FILE_NAME},#{f_STORED_FILE_NAME},#{f_SIZE},now()) 
+	</insert>
+  
+    <!-- r_num에 해당하는 가게 이미지 조회 -->
+	<select id="replyImage" resultType="hashMap">
+	  select * from file where r_num=#{r_num}
+	</select>
+	 
+	<!-- 평균구하기 -->
+	<select id="getRatingAverage" resultType="double">
+  	
+  		select avg(r_grade)
+  		from reply
+  		where s_num = #{s_num}
+  	
+  	</select>
+	<!-- 평균 보이기 -->
+	<update id="updateRating">
+	
+		update store_info
+		set ratingAvg = #{ratingAvg}
+		where s_num = #{s_num}
+	
+	</update>
+	
+	 
+  </mapper>

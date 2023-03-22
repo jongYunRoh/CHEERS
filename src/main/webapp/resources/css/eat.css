@@ -1,0 +1,346 @@
+@charset "UTF-8";
+
+/*가게등록하기*/
+.register {
+	padding: 4rem 0;
+}
+.register_title {
+	text-align: center;
+	border-bottom: 2px solid;
+	padding: 2rem 0;
+}
+.register .btn_wrap {
+	display: flex;
+    justify-content: center;
+}
+.register .store_btn {
+	text-align: center;
+	background: #00d344;
+    color: #fff;
+    width: 150px;
+}
+
+/*잇딜등록*/
+.eatReg {
+    padding: 4rem 0;
+}
+.eatReg_title {
+	border-bottom: 2px solid;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+.eatReg form {
+	padding: 3rem;
+}
+.eatReg .btn_wrap {
+	display: flex;
+    justify-content: center;
+}
+.eat_regi_btn {
+	background: #00d344;
+    color: #fff;
+    width: 150px;
+}
+
+/*eatlist*/
+.eat_list {
+	background: #f8f8f8;
+}
+.eat_list .wrap {
+	display: flex;
+	flex-flow: column;
+	max-width: 770px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+.eat_list .sub_title {
+	margin-bottom: 20px;
+}
+.eat_list .contents {
+	display: flex;
+	margin-bottom: 20px;
+	border: 4px solid;
+}
+.eat_list .sumnail_box {
+	width: 550px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.eat_list .sumnail_box .new {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 30px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.eat_list .sumnail_box a {
+	display: flex;
+	
+}
+.eat_list .sumnail_box a img {
+	width: 100%;
+    height: auto;
+    transform:scale(1.0); 
+    transition: all 0.5s ease;
+}
+.eat_list .sumnail_box a:hover img {
+	transform: scale(1.2);
+}
+.eat_list .sumnail_box a .cover {
+	width: 100%;
+    height: 300px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.eat_list .price {
+	position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    color: #fff;
+    font-weight: 500;
+}
+.eat_list .content_box {
+	display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    width: 213px;
+	height: 300px;
+    background: #fff;
+    padding: 1rem;
+    position: relative;
+}
+.eat_list .content_box .percent {
+	position: absolute;
+    top: 20px;
+    right: 16px;
+    font-size: 30px;
+    color: #1fceb6;
+    letter-spacing: -1px;
+}
+.eat_list .content_box a {
+	text-decoration: none;
+	color: #000;
+}
+.eat_list .content_box .title {
+	font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+.eat_list .content_box .menu {
+	color: #6a6969;
+    margin-bottom: 7px;
+}
+.eat_list .content_box .addr {
+	color: #898989;
+}
+
+/*best list*/
+.best_list .user-wrap {
+	height: 250px;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+}
+.best_list .user-image {
+	height: 100%;
+}
+.best_list .user-image a {
+	display: flex;
+	flex-flow: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+}
+.best_list .user-image .emoji {
+	display: block;
+	font-size: 40px;
+	margin-bottom: 1rem;
+}
+.best_list .user-text {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate( -50%, -50% );
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    color: white !important;
+    text-shadow: 1px 2px 4px rgb(0 0 0);
+    text-decoration: none;
+}
+.best_list .user-text:hover {
+	text-decoration: none;
+}
+.best_list .sub_title {
+	margin-bottom: 3rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+/*eat info*/
+.eat_info {
+	max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.eat_info .title {
+	text-align: center;
+	border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+}
+.eat_info .img_cover {
+	width: 100%;
+    height: 330px;
+    overflow: hidden;
+}
+.eat_info .img_cover img {
+	width: 100%;
+}
+.eat_info .name {
+	font-size: 24px;
+	font-weight: bold;
+	margin: 20px 0;
+}
+.eat_info .menu {
+	color: #888686;
+	font-size: 18px;
+    margin: 10px 0;
+}
+.eat_info .period {
+	font-size: 14px;
+}
+.eat_info .price {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: right;
+}
+.eat_info .price span {
+	color: #1fceb6;
+	margin-right: 10px;
+}
+.eat_info .buy_btn {
+	background: #5f0080;
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	font-weight: bold;
+	margin-top: 4rem;
+}
+
+/*food list*/
+.food_list a {
+	text-decoration: none;
+}
+.food_list .name {
+	color: #4e4e4e;
+	font-weight: bold;
+}
+.food_list .name .score {
+	color: #00d344;
+	margin-left: 1rem;
+}
+.food_list .addr {
+	color: #b1b1b1;
+	margin-top: 1rem;
+}
+
+.food_list .box {
+	border-bottom: 1px solid #c8c8c8;
+    padding-bottom: 1.5rem;
+}
+.food_list .comment {
+	color: #5c5c5c;
+    margin-top: 1rem;
+}
+
+/*store info*/
+.store_info .content,
+#reply, .reply_from {
+	width: calc(100% - 300px);
+}
+.store_info .content .box {
+	max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 0;
+    border-bottom: 2px solid #cdcdcd;
+}
+#reply .box,
+.reply_from form {
+	max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.store_info .store_name {
+	font-size: 30px;
+	font-weight: bold;
+	border-bottom: 1px solid #cbcbcb;
+    padding: 3rem 0;
+}
+.store_info .content table {
+	margin: 1.5rem 0;
+}
+.store_info .content table .title {
+	color: #969696;
+	padding: 1rem 0;
+}
+.reply_from form {
+	border-top: 2px solid #cdcdcd;
+}
+.star_wrap img {
+	width: 15px;
+}
+.reply_list {
+	justify-content: space-between;
+}
+.replyList > li {
+	border-bottom: 1px solid #bdbcbc;
+    padding: 1rem 0;
+}
+.replyList > li:last-child {
+	border-bottom: 0;
+}
+.reply_list .id {
+	font-size: 18px;
+}
+.reply_list .date {
+	font-size: 14px;
+    color: #a8a8a8;
+    margin-top: 4px;
+}
+.reply_list .text {
+	width: 70%;
+}
+.reply_from .form-group {
+	align-items: center;
+}
+.btn_wrap {
+	text-align: center;
+}
+.reply_btn {
+	background: #00d344;
+    color: #fff;
+    width: 130px;
+    height: 50px;
+}
